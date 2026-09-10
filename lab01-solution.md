@@ -176,6 +176,8 @@ Analyse the source code in package lst01_04
 
 ### Exercises
 
+---
+
 1. Explain the following concepts:
     - static variable (field/class member)
     - static constant 
@@ -186,6 +188,8 @@ Analyse the source code in package lst01_04
     - Static variables are initialized when class is loaded (so "only once" per class, before any object of that class is created)
     - static constants = static final variables; they are quite common (in contrast to mutable static variables)
 ```
+
+---
 
 2. Explain why static constants often have public visibility
 
@@ -198,6 +202,9 @@ because it is public, everyone can read it.
 This makes it a safe global constant,
 unlike a public static mutable field, which would be a shared mutable global (bad).
 ```
+
+---
+
 3. Explain why static methods do not have access to instance members (methods and fields)
 
 ```
@@ -212,10 +219,13 @@ inside a static block in HelloObjectInit.java:
 // m1(); // Non-static method 'm1()' cannot be referenced from a static context
 ```
 
+---
+
 4. Give one example of a static method application
 
 ```
 ```
+
 ---
 
 ## 3) Constructors, factory methods, and singletons
@@ -231,6 +241,8 @@ Analyse the source code in packages:
 
 ### Exercises
 
+---
+
 1. Describe the object initialisation process for a class derived from the Object class (including default values for different types of fields/variables, static variables, static constants, anonymous static blocks, anonymous blocks, constructors)
 
 ```
@@ -243,6 +255,8 @@ Analyse the source code in packages:
     - static blocks are executed only once, when the program starts (the corresponding class is loaded); they are executed even if no instances are created</li>
     - normal blocks are executed whenever a new instance is created
 ```
+
+---
 
 2. For class D9 from (defined in ClassFamily.java):
 
@@ -278,6 +292,8 @@ Constructor and Initialization Order
 - The fields and initialization blocks are initialized before the D9 constructor body is executed.
 ```
 
+---
+
 3. Compare capabilities of constructors and factory methods 
 
 ```
@@ -285,6 +301,9 @@ Constructor and Initialization Order
 - return an object of a subclass
 - return a shared object, instead of unnecessarily constructing new ones
 ```
+
+---
+
 4. Give at least two applications of the singleton pattern
 
 ```
@@ -294,6 +313,9 @@ Constructor and Initialization Order
 - Thread Pool / Connection Pool: one shared pool of reusable resources.
 - Hardware access: e.g., a printer spooler (the classic GoF example).
 ```
+
+---
+
 5. Write a couple of unit test (JUnit 5) for singletons from lst01_08
 
 ```java
@@ -314,10 +336,14 @@ class SingletonTest {
 }
 ```
 
+---
+
 ## 4) Immutable objects/classes and Java Records
    Analyse the source code in package lst01_09
 
 ### Exercises
+
+---
 
 1. Explain a strategy for defining immutable objects
 
@@ -333,6 +359,8 @@ To define an immutable class:
 5. Do not let this escape during construction.
 ```
 
+---
+
 2. Compare the concepts of the immutable object and immutable class 
 ```
     An immutable object is implemented with a "final" modifier which make the field or the method a constant, and an immutable class make it closed for extension.
@@ -346,6 +374,8 @@ To define an immutable class:
 
     So: an immutable object is an instance; an immutable class is a class whose every instance is immutable.
 ```
+
+---
 
 3. Explain the advantages of immutable objects 
 
@@ -362,6 +392,8 @@ Other notable pros are :
 - Easy to test
 
 ```
+
+---
 
 4. Give at least two uses of the Java Records 
 
@@ -387,16 +419,22 @@ Record has at least two uses:
 4. Pattern matching (Java 21+): records are commonly used as the target of record patterns.
 ```
 
+---
+
 5. Write a couple of unit tests to for HelloImmutable and HelloJavaRecord
 
 ```
 ```
+
+---
 
 ## 5) Overriding hashCode, equals, and toString
 
    Analyse the source code in package lst01_10
 
 ### Exercises
+
+---
 
 1. Explain the difference between == operator and equals method in Java (consider primitive and reference types)
 
@@ -405,6 +443,8 @@ Record has at least two uses:
 - For reference types, == compares references (same object in memory).
 - equals (as defined by Object) defaults to reference equality, but classes like String, Integer, and records override it to compare state/content.
 ```
+
+---
 
 2. Explain the following formula o1.equals(o2) $\implies$ hasCode(o1) == hashCode(o2)
 
@@ -416,6 +456,8 @@ Otherwise hash-based collections (HashMap, HashSet) would fail to find them.
 NB: the converse is not required: equal hash codes do not imply equality (that's a collision, 
 which is allowed). The other direction of the contract is: if hashCode differs, the objects must not be equal.
 ```
+
+---
 3. Familiarize yourself with the Java Object class 
 
 ```
@@ -425,6 +467,9 @@ Object is the root of the class hierarchy. Every class implicitly extends it. It
 - getClass(), clone(), finalize() (deprecated)
 - wait(), notify(), notifyAll()
 ```
+
+---
+
 4. Explain the general contract of hashCode and equals
 ```
 equals contract (reflexive, symmetric, transitive, consistent, and x.equals(null) is false).
@@ -437,7 +482,16 @@ equals contract (reflexive, symmetric, transitive, consistent, and x.equals(null
 
 NB : if you override equals, you must override hashCode.
 ```
+
+---
+
 5. Generate JavaDOC documentation for the project (hint: Tools > Generate JavaDoc)
 
 ```
 ```
+
+---
+
+## 6) Push the commits to the remote repository
+
+---
